@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f0edfa">
+  <meta name="robots" content="noindex, nofollow">
+  <title>钢琴节拍练习</title>
+  <meta name="description" content="选择曲目、速度和钢琴版本，跟着预备拍练习。">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <main class="page">
+    <h1>钢琴节拍练习</h1>
+    <section class="practice" aria-label="练习设置与播放">
+      <fieldset>
+        <legend>曲目</legend>
+        <div class="choices songs">
+          <label>
+            <input type="radio" name="song" value="count-on-me" checked>
+            <span class="choice song">
+              <strong>Count on Me</strong>
+              <small>Bruno Mars · 全曲</small>
+            </span>
+          </label>
+          <label>
+            <input type="radio" name="song" value="listen-to-mom">
+            <span class="choice song">
+              <strong>听妈妈的话</strong>
+              <small>周杰伦 · 前奏＋副歌</small>
+            </span>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>速度 <small>BPM</small></legend>
+        <div class="choices speeds" id="speeds"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>钢琴</legend>
+        <div class="choices versions">
+          <label>
+            <input type="radio" name="piano" value="with-piano" checked>
+            <span class="choice">保留钢琴</span>
+          </label>
+          <label>
+            <input type="radio" name="piano" value="no-piano">
+            <span class="choice">静音钢琴</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <section class="player" aria-label="音频播放器">
+        <audio id="audio" preload="none"></audio>
+        <input id="progress" type="range" min="0" max="1" step=".1" value="0" aria-label="播放进度" disabled>
+        <div class="times" aria-hidden="true">
+          <span id="elapsed">0:00</span>
+          <span id="duration">–:––</span>
+        </div>
+        <div class="actions">
+          <button type="button" class="play" id="play" data-playing="false">
+            <span class="play-icon" aria-hidden="true"></span>
+            <span id="play-text">播放</span>
+          </button>
+          <button type="button" class="restart" id="restart">从头练</button>
+        </div>
+        <p id="status" class="status" role="status" hidden></p>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
